@@ -13,7 +13,7 @@ class View {
       for (let r = 0; r < field.length; r++) {
          for (let c = 0; c < field.length; c++) {
             if (field[r][c])
-               ctx.fillRect(r * d, c * d, d, d);
+               ctx.fillRect(c * d, r * d, d, d);
          }
       }
 
