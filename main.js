@@ -1,5 +1,5 @@
 const model = new Model(10);
-model.toggle(0, 0);
-model.toggle(9, 9);
+for (let i = 0; i < 10; i++)
+model.toggle(i, i);
 const view = new View(model, canvas1);
 view.draw();

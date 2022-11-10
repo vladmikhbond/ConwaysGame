@@ -2,26 +2,28 @@ class Model {
 
    constructor(size) {
       this.size = size;
-      this.fied = new Array(size);
-      for (let r in this.fied)
-         this.fied[r] = new Array(size).fill(0);
+      this.field = new Array(size);
+      for (let r = 0; r < this.field.length; r++) {
+         this.field[r] = new Array(size).fill(0);
+      }
+
       this.back = new Array(size);
-         for (let r in this.fied)
+      for (let r = 0; r < this.back.length; r++) {
             this.back[r] = new Array(size);
-   
+      }
    }
 
    nextGen() {
-      for (let r = 0; r < this.fied.length; r++) {
-         for (let c = 0; c < this.fied.length; c++) {
+      for (let r = 0; r < this.field.length; r++) {
+         for (let c = 0; c < this.field.length; c++) {
             let count = liveNeitborsCount(r, c);
-            if (this.fied [r][c]) 
+            if (this.field [r][c]) 
                this.back[r][c] = count == 2 || count == 3 ? 1 : 0; 
             else 
                this.back[r][c] = count == 3 ? 1 : 0;
          }
       }
-      let t = this.fied; this.fied = this.back; this.back = t;
+      let t = this.field; this.field = this.back; this.back = t;
 
 
       function liveNeitborsCount(r, c) {
@@ -38,7 +40,7 @@ class Model {
    }
 
    toggle(row, col) {
-      this.fied[row][col] = (this.fied[row][col] + 1) % 2;
+      this.field[row][col] = (this.field[row][col] + 1) % 2;
    }
 
 }
