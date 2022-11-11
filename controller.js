@@ -1,4 +1,4 @@
-function Cont(model, view, interval ) 
+function controller(model, view, interval) 
 {
    fieldCanvas.addEventListener('mousedown', function(e) {
       let scale = fieldCanvas.width / model.size;
@@ -11,7 +11,7 @@ function Cont(model, view, interval )
 
    let timer = null;
 
-   startButton.addEventListener('mousedown', function(e) {
+   startButton.addEventListener('click', function(e) {
       if (timer) {
          clearInterval(timer);
          timer = null;
