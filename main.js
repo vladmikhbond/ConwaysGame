@@ -1,4 +1,4 @@
-const N = 51;
+const N = 100;
 const T = 50;
 
 const model = new Model(N);

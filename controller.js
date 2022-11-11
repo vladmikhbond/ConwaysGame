@@ -1,7 +1,7 @@
 function Cont(model, view, interval ) 
 {
-   canvas1.addEventListener('mousedown', function(e) {
-      let scale = canvas1.width / model.size;
+   fieldCanvas.addEventListener('mousedown', function(e) {
+      let scale = fieldCanvas.width / model.size;
       let col = e.offsetX / scale | 0;
       let row = e.offsetY / scale | 0;
       
@@ -11,17 +11,17 @@ function Cont(model, view, interval )
 
    let timer = null;
 
-   startBtn.addEventListener('mousedown', function(e) {
+   startButton.addEventListener('mousedown', function(e) {
       if (timer) {
          clearInterval(timer);
          timer = null;
-         startBtn.innerHTML = '►';
+         startButton.innerHTML = '►';
       } else {
          timer = setInterval(function() {
             model.nextGen();
             view.draw(); 
          }, interval);
-         startBtn.innerHTML = '■';
+         startButton.innerHTML = '■';
       }
    });
 

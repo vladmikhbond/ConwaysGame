@@ -1,4 +1,7 @@
-class Model {
+class Model 
+{
+   field;
+   #next;
 
    constructor(size) {
       this.size = size;
@@ -7,9 +10,9 @@ class Model {
          this.field[r] = new Array(size).fill(0);
       }
 
-      this.back = new Array(size);
-      for (let r = 0; r < this.back.length; r++) {
-            this.back[r] = new Array(size);
+      this.#next = new Array(size);
+      for (let r = 0; r < this.#next.length; r++) {
+            this.#next[r] = new Array(size);
       }
    }
 
@@ -19,12 +22,12 @@ class Model {
          for (let c = 0; c < this.field.length; c++) {
             let count = this.#liveNeitborsCount(r, c);
             if (this.field [r][c]) 
-               this.back[r][c] = count == 2 || count == 3 ? 1 : 0; 
+               this.#next[r][c] = count == 2 || count == 3 ? 1 : 0; 
             else 
-               this.back[r][c] = count == 3 ? 1 : 0;
+               this.#next[r][c] = count == 3 ? 1 : 0;
          }
       }
-      let t = this.field; this.field = this.back; this.back = t;
+      let t = this.field; this.field = this.#next; this.#next = t;
    }
 
    #liveNeitborsCount(r, c) {
