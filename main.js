@@ -1,12 +1,12 @@
-const N = 100;
-const T = 50;
+const FIELD_SIZE = 100;
+const TIME_INTERVAL = 50;
 
-const model = new Model(N);
-const view = new View(model); 
-Cont(model, view, T);
+const model = new Model(FIELD_SIZE);
+const view = new View(model);
+controller(model, view, TIME_INTERVAL);
 
-
-for (let i = 0; i < N; i++)
+// початкова конфігурація
+for (let i = 0; i < FIELD_SIZE; i++)
    model.toggle(i, i);
-model.toggle(0, N-1);
+model.toggle(0, FIELD_SIZE-1);
 view.draw();
