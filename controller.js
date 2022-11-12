@@ -7,7 +7,7 @@ function controller(model, view, interval)
       
       model.toggle(row, col);
       view.draw();
-   })
+   });
 
    let timer = null;
 
